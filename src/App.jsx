@@ -3,15 +3,19 @@ import { OptionsPanel } from './OptionsPanel'
 import { RenderPanel } from './RenderPanel'
 import { useState } from 'react'
 
+const Spinner = () => <div className='spinner'></div>
+
 function App() {
 
-  const [requestInProcess, setRequestInProcess] = useState(false);
+  const [requestInProgress, setRequestInProcess] = useState(false);
+  const [itemNames, setItemNames] = useState([]);
   const [maleRenderData, setMaleRenderData] = useState(null);
   const [femaleRenderData, setFemaleRenderData] = useState(null);
   const [maleChatheadRenderData, setMaleChatheadRenderData] = useState(null);
   const [femaleChatheadRenderData, setFemaleChatheadRenderData] = useState(null);
 
-  const updateRenderData = ({ maleRenderData, femaleRenderData, maleChatheadRenderData, femaleChatheadRenderData }) => {
+  const updateRenderData = ({ itemNames, maleRenderData, femaleRenderData, maleChatheadRenderData, femaleChatheadRenderData }) => {
+    setItemNames(itemNames)
     setMaleRenderData(maleRenderData)
     setMaleChatheadRenderData(maleChatheadRenderData)
     setFemaleRenderData(femaleRenderData)
@@ -20,7 +24,7 @@ function App() {
 
   const fetchResults = (itemId, selectedRotation, poseAnim) => {
     setRequestInProcess(true)
-    updateRenderData({ maleRenderData: null, femaleRenderData: null, maleChatheadRenderData: null, femaleChatheadRenderData: null })
+    updateRenderData({ itemNames: [], maleRenderData: null, femaleRenderData: null, maleChatheadRenderData: null, femaleChatheadRenderData: null })
     fetch('https://chisel.weirdgloop.org/playerkit/render', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -34,15 +38,16 @@ function App() {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
       <div style={{ flex: '1 1' }}>
-        <OptionsPanel onSubmit={fetchResults} canSubmit={!requestInProcess} />
+        <OptionsPanel onSubmit={fetchResults} canSubmit={!requestInProgress} />
       </div>
-      <div style={{ flex: '0 0 50%', minHeight: '700px' }}>
-        <RenderPanel
+      <div style={{ flex: '0 0 50%', minHeight: '700px', backgroundColor: '#292929', display: 'flex' }}>
+        {requestInProgress ? <Spinner /> : <div style={{flex: '1'}}><RenderPanel
+          itemNames={itemNames}
           maleRenderData={maleRenderData}
           maleChatheadRenderData={maleChatheadRenderData}
           femaleRenderData={femaleRenderData}
           femaleChatheadRenderData={femaleChatheadRenderData}
-        />
+        /></div>}
       </div>
     </div>
   )

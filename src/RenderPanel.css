@@ -1,0 +1,22 @@
+.render-panel {
+    box-sizing: border-box;
+    gap: 20px;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.render-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.render-container {
+    flex: 0 0 auto;
+}
+
+.full-render-image {
+    max-height: 500px;
+    width: auto;
+}

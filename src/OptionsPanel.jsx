@@ -33,7 +33,7 @@ export const OptionsPanel = ({ onSubmit, canSubmit }) => {
 
             <label style={{ display: 'flex', gap: '12px', alignItems: 'center', justifyContent: 'flex-start' }}>
                 <span className='form-label'>Pose id</span>
-                <input ref={poseAnimFieldRef} type='text' size='6' className='form-text-input' pattern='[0-9]+' required/>
+                <input ref={poseAnimFieldRef} type='text' defaultValue='808' size='6' className='form-text-input' pattern='[0-9]+' required/>
             </label>
 
             <label style={{ display: 'flex', gap: '12px', alignItems: 'center', justifyContent: 'flex-start' }}>

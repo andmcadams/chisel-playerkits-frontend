@@ -5,3 +5,22 @@
   text-align: center;
   max-width: 1200px;
 }
+
+.spinner {
+  animation: spin 1s linear infinite;
+  border: 8px solid #b3b3b3;
+  border-top: 8px solid #6d6b79;
+  border-radius: 50%;
+  margin: auto;
+  width: 60px;
+  height: 60px;
+}
+
+ @keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
