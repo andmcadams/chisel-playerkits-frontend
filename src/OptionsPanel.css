@@ -1,0 +1,79 @@
+/* Style for the button group container */
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-group > * {
+  flex: 1 0;
+  box-sizing: border-box;
+}
+
+/* Hide the default radio buttons */
+.btn-radio {
+  display: none;
+}
+
+/* Style for each label (which looks like a button) */
+/* .btn {
+  padding: 10px 20px;
+  margin: 0;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  transition: background-color 0.3s, border-color 0.3s;
+} */
+
+/* Style when the radio button is selected */
+ .btn-radio:checked + .btn {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* Hover effect */
+/* .btn:hover {
+  background-color: #ddd;
+  border-color: #bbb;
+} */
+
+/* Focus state (optional but helpful for accessibility) */
+/* .btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+} */
+
+.btn {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.3em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.btn:hover {
+  border-color: #646cff;
+}
+.btn:focus,
+.btn:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.form-label {
+  width: 100px;
+  flex: none;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: left;
+}
+
+.form-text-input {
+  flex: 0 1;
+  font-size: 1em;
+}
