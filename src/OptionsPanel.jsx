@@ -28,7 +28,7 @@ export const OptionsPanel = ({ onSubmit, canSubmit }) => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', width: '80%' }}>
             <label style={{ display: 'flex', gap: '12px', alignItems: 'center', justifyContent: 'flex-start' }}>
                 <span className='form-label'>Item id</span>
-                <input ref={idFieldRef} type='text' size='6' className='form-text-input' pattern='[0-9]+' required />
+                <input ref={idFieldRef} type='text' size='6' className='form-text-input' pattern='([0-9]+)(,[0-9]+)*' required />
             </label>
 
             <label style={{ display: 'flex', gap: '12px', alignItems: 'center', justifyContent: 'flex-start' }}>
