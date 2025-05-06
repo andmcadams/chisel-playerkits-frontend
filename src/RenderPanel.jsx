@@ -1,7 +1,7 @@
 import './RenderPanel.css'
 
 export const RenderPanel = ({itemNames, maleRenderData, maleChatheadRenderData, femaleRenderData, femaleChatheadRenderData}) => {
-    const baseFileName = itemNames?.length > 1 ? '_'.join(itemNames) : (itemNames[0] ?? '')
+    const baseFileName = itemNames?.length > 1 ? itemNames.join('_') : (itemNames[0] ?? '')
     return <div className='render-panel'>
         {/* Full renders */}
         <div className='render-row'>
